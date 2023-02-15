@@ -1,0 +1,15 @@
+【N 個の整数の入力】1 行目で与えられる N 個の整数の入力 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        int j = 0;
+        for(int i = 0; i < count; i++){
+            j = sc.nextInt();
+            System.out.println(j);
+        }        
+    }
+}
