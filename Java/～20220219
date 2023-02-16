@@ -29,3 +29,114 @@ public class Main {
         }
     }
 }
+
+◆【組になったデータの入力】文字列と整数の組からの選択
+●作成コード
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        
+        for(int i = 0; i < count; i++){
+            String line = sc.nextLine();
+            if(i == 8){
+                System.out.println(line);
+            }
+        }
+    }
+}
+
+●模範解答
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int n = sc.nextInt();
+
+    String[] s = new String[n];
+    int[] a = new int[n];
+    for (int i = 0; i < n; i++) {
+      s[i] = sc.next();
+      a[i] = sc.nextInt();
+    }
+
+    System.out.println(s[7] + " " + a[7]);
+
+    sc.close();
+  }
+}
+まず、2 行目以降に入力される値の組の数を表す整数 n を受け取ります。
+続く n 行の各行の入力は s_i a_i の形式なので、next〇〇 メソッドで受け取る入力値の順は s_i, a_i です。
+つまり、今回は next メソッド、nextInt メソッドの順で受け取り、それぞれ適切な配列に代入することで、正常に入力を受け取れます。
+8 番目の要素を出力するとき、配列のインデックスが 0 から始まることに注意が必要です。
+n が 8 以上であることが問題文で保証されているので、配列外参照 (ArrayIndexOutOfBoundsException) を気にする必要はありません。
+
+
+◆N 行 M 列のデータの入力】行ごとに要素数の異なる整数列の入力
+●作成コード
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        
+        for(int i=0; i<count; i++){
+            
+            int length = sc.nextInt();
+            
+            for(int j=0; j<length; j++){
+                
+                int a = sc.nextInt();
+                
+                if(length-j==1){
+                    System.out.println(a);
+                }else{
+                    System.out.print(a+" ");
+                }
+            }
+        }
+    }
+}
+
+●模範解答
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int n = sc.nextInt();
+
+    for (int i = 0; i < n; i++) {
+      int m = sc.nextInt();
+      for (int j = 0; j < m; j++) {
+        int a = sc.nextInt();
+
+        System.out.print(a);
+        if (j < m - 1) {
+          System.out.print(" ");
+        } else {
+          System.out.println();
+        }
+      }
+    }
+
+    sc.close();
+  }
+}
+今回は行ごとに入力される数列の要素数が異なるので、2 次元配列では管理できません。
+そこで、今回は配列で受け取らずに、受け取った値をそのまま出力することを考えます。
+まず、2 行目以降に入力される値の行数を表す整数 n を受け取ります。
+そこから n 行に亘っての入力は for 文で処理します。
+行の先頭で 入力される整数 a の数を表す整数 m_i が与えられるので、これを元に for 文を作ります。
+m_i 回繰り返す for 文内で a_ij を受け取り、出力します。
+どこで改行するか、どこで空白を入れるか、は上記のコードで j に注目して判定すれば上手くいきます。
+配列のインデックスは 0 から始まることに注意して if 文を書いて下さい。
