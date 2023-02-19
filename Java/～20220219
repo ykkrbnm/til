@@ -360,3 +360,236 @@ public class Main {
     }
 }
 
+// 2次元配列を作成してみよう
+public class Main {
+    public static void main(String[] args) {
+        String[] item1 = {"木の棒", "こん棒"};
+        String[] item2 = {"おにぎり", "おにぎり"};
+        String[] item3 = {"毒消し", "薬草"};
+
+        // item1 ~ 3を、basket配列に代入してください。
+        String[][] basket = {item1, item2, item3};
+
+        System.out.println(basket[0][0]);
+        System.out.println(basket[0][1]);
+        System.out.println(basket[1][0]);
+        System.out.println(basket[1][1]);
+        System.out.println(basket[2][0]);
+        System.out.println(basket[2][1]);
+    }
+}
+// 配列の中身を出力してみよう
+public class Main {
+    public static void main(String[] args) {
+        String[][] array = {{"勇者", "忍者"}, {"武士", "戦士"}, {"僧侶", "魔法使い"}};
+
+        // この下で、arrayの全ての要素を出力してみよう
+        System.out.println(array[0][0]);
+        System.out.println(array[0][1]);
+        System.out.println(array[1][0]);
+        System.out.println(array[1][1]);
+        System.out.println(array[2][0]);
+        System.out.println(array[2][1]);
+    }
+}
+// 2次元配列の要素の個数を出力する
+public class Main {
+    public static void main(String[] args) {
+        String[][] basket = {{"木の棒", "こん棒"}, {"おにぎり", "おにぎり"}, {"毒消し", "薬草"}};
+
+        // ここに、個数を出力するコードを記述する
+        System.out.println(basket[1].length);
+    }
+}
+// ループで2次元配列を出力してみよう
+public class Main {
+    public static void main(String[] args) {
+        String[][] array = {{"勇者", "忍者"}, {"武士", "戦士"}, {"僧侶", "魔法使い"}};
+
+        // この下で、forループで、arrayを出力してみよう
+        for(String[] team : array){
+            for(String player : team){
+                System.out.println(player);
+            }
+        }
+        
+
+    }
+}
+// 2次元配列の初期値を指定しよう
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] array = new int[2][3];
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0;  j < array[i].length; j++) {
+                //この下で、初期値を指定する
+                array [i][j] = 1;
+                System.out.print(array[i][j]);
+            }
+            System.out.println("");
+        }
+    }
+}
+// ドットで文字を出力しよう
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] letterA =
+            {{0,0,1,1,0,0},
+             {0,1,0,0,1,0},
+             {1,0,0,0,0,1},
+             {1,1,1,1,1,1},
+             {1,0,0,0,0,1},
+             {1,0,0,0,0,1}};
+
+        // ここに、ドットを表示するコードを記述する
+        for(int[] line : letterA){
+            for(int dot : line){
+                if(dot == 1){
+                    System.out.print("@");
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+}
+// ドットで文字を出力しよう
+public class Main {
+    public static void main(String[] args) {
+
+        int[][][] letters =
+            {{{0,0,1,1,0,0},
+             {0,1,0,0,1,0},
+             {1,0,0,0,0,1},
+             {1,1,1,1,1,1},
+             {1,0,0,0,0,1},
+             {1,0,0,0,0,1}},
+            {{1,1,1,1,1,0},
+             {1,0,0,0,0,1},
+             {1,1,1,1,1,0},
+             {1,0,0,0,0,1},
+             {1,0,0,0,0,1},
+             {1,1,1,1,1,0}},
+            {{0,1,1,1,1,0},
+             {1,0,0,0,0,1},
+             {1,0,0,0,0,0},
+             {1,0,0,0,0,0},
+             {1,0,0,0,0,1},
+             {0,1,1,1,1,0}}};
+
+        // ここに、ドットを表示するコードを記述する
+        for(int[][] img : letters){
+            for (int[] line : img) {
+                for (int dot : line) {
+                    if (dot == 1) {
+                        System.out.print("@");
+                    } else {
+                        Syste// 模様を出力してみよう
+public class Main {
+    public static void main(String[] args) {
+        String[][] areaMap = new String[5][10];
+        // この下で、2次元配列の初期値を設定する
+        areaMap[0][0] = "+";
+        areaMap[0][9] = "+";
+        areaMap[4][0] = "+";
+        areaMap[4][9] = "+";
+        for (int i = 0; i < areaMap.length; i++) {
+            for (int j = 0; j < areaMap[i].length; j++) {
+                if (areaMap[i][j] == null) {
+                    areaMap[i][j] = ".";
+                }
+                System.out.print(areaMap[i][j]);
+            }
+            System.out.println("");
+        }
+    }
+}
+m.out.print(" ");
+                    }
+                }
+            System.out.println("");
+            }
+        System.out.println("");
+        }
+    }
+}
+// 模様を出力してみよう
+public class Main {
+    public static void main(String[] args) {
+        String[][] areaMap = new String[5][10];
+
+        for (int i = 0; i < areaMap.length; i++) {
+            for (int j = 0; j < areaMap[i].length; j++) {
+                if(i % 2 == 0 && j % 2 == 0){
+                    areaMap[i][j] = "+";
+                }else{
+                    areaMap[i][j] = ".";    
+                }
+                System.out.print(areaMap[i][j]);
+            }
+            System.out.println("");
+        }
+    }
+}
+// 標準入力から文字のドットデータを読み込む
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] table = new int[n][m];
+        // ここに、標準入力から2次元配列に代入するコードを書く
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                table[i][j] = sc.nextInt();
+            }
+        }
+
+        // 2次元配列から文字を出力
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (table[i][j] == 1) {
+                    System.out.print("#");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+}
+// 2次元配列で画像を表示する
+
+public class Main {
+    public static void main(String[] args) {
+
+        //画像URL用の配列
+        String[] playerImages = {
+            "https://paiza-webapp.s3.amazonaws.com/files/learning/rpg/Empty.png",
+            "https://paiza-webapp.s3.amazonaws.com/files/learning/rpg/Dragon.png",
+            "https://paiza-webapp.s3.amazonaws.com/files/learning/rpg/Crystal.png",
+            "https://paiza-webapp.s3.amazonaws.com/files/learning/rpg/Hero.png",
+            "https://paiza-webapp.s3.amazonaws.com/files/learning/rpg/Heroine.png"};
+
+        //キャラクター配置用の配列
+        int[][] characterMap = {{1,1,1,1,1},
+                                {2,3,3,3,2},
+                                {2,4,4,4,2}};
+
+        System.out.println("<table>");
+        for (int[] line: characterMap) {
+            System.out.println("<tr>");
+            for (int imageId: line) {
+                System.out.print("<td><img src='" + playerImages[imageId] + "'></td>");
+            }
+            System.out.println("</tr>");
+        }
+        System.out.println("</table>");
+    }
+}
