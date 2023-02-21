@@ -1,0 +1,165 @@
+// インスタンスを実体化しよう
+
+public class Main {
+    public static void main(String[] args) {
+        // この下でGreetingオブジェクトをつくり、メソッドを呼び出す
+        Greeting greeting1 = new Greeting();
+        greeting1.sayHello();
+    }
+}
+
+class Greeting {
+    public void sayHello() {
+        System.out.println("hello paiza");
+    }
+}
+// クラスにメソッドを定義しよう
+
+public class Main {
+    public static void main(String[] args) {
+        Greeting paiza = new Greeting();
+        paiza.sayHello();
+    }
+}
+
+class Greeting {
+    // この下に、sayHelloメソッドを記述する
+    public void sayHello(){
+        System.out.println("hello java");
+    }
+}
+// メンバー変数とコンストラクタを追加しよう
+
+public class Main {
+    public static void main(String[] args) {
+        Greeting paiza = new Greeting("java");
+        paiza.sayHello();
+    }
+}
+
+class Greeting {
+    // この下に、メンバー変数とコンストラクタを追加する
+    private String myName;
+    public Greeting(String name) {
+        myName = name;
+    }
+    public void sayHello() {
+        System.out.println("hello " + myName);
+    }
+}
+// RPGの攻撃シーン
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Player> team = new ArrayList<Player>();
+        team.add(new Player("勇者"));
+        team.add(new Player("戦士"));
+        team.add(new Player("魔法使い"));
+
+        for (Player person : team) {
+            person.attack("スライム");
+        }
+    }
+}
+
+class Player {
+    private String myName;
+
+    public Player(String name) {
+        myName = name;
+    }
+
+    public void attack(String enemy) {
+	    System.out.println(myName + "は" + enemy + "を攻撃した");
+    }
+}
+// 学生メソッドを作る
+
+public class Main {
+    public static void main(String[] args) {
+        Gakusei yamada = new Gakusei(70, 43);
+        System.out.println("合計は" + yamada.sum() + "点です");
+    }
+}
+
+class Gakusei {
+    private int myKokugo;
+    private int mySansu;
+
+    public Gakusei(int kokugo, int sansu) {
+        myKokugo = kokugo;
+        mySansu = sansu;
+    }
+
+    // この下に、合計得点を戻り値として返すsumメソッドを記述する
+    public int sum(){
+        return myKokugo + mySansu; 
+    }
+
+}
+// 配列に対してメソッドを実行する
+
+public class Main {
+    public static void main(String[] args) {
+        String[] team = {"勇者", "戦士", "魔法使い", "忍者", "商人"};
+        //この下に、要素数をテキストとして表示する処理を記述する
+        System.out.println(team.length);
+    }
+}
+// 学生メソッドを呼び出す
+
+public class Main {
+    public static void main(String[] args) {
+        // この下に、合計得点を戻り値として返すsumメソッドを記述する
+        // 国語 = 70点、算数 = 43点
+        int total = Gakusei.sum(70, 43);
+        System.out.println("合計は" + total + "点です。");
+    }
+}
+
+class Gakusei {
+    // この下に、合計得点を戻り値として返すsumメソッドを記述する
+    public static int sum(int kokugo,int sansu){
+        return kokugo + sansu;
+    }
+}
+// 九九の表を作成してみよう
+
+public class Main {
+    public static void main(String[] args) {
+        for(int m = 1; m <= 9; m++){
+            for (int num = 1; num <= 9; num++) {
+                System.out.print(multi(m, num));
+                if (num < 9) {
+                    System.out.print(", ");
+                } else {
+                    System.out.println("");
+                }
+            }            
+        }
+    }
+    public static int multi(int x, int y) {
+        return x * y;
+    }
+}
+// RPGの攻撃シーン
+
+public class Main {
+    public static void main(String[] args) {
+        String[] team = {"勇者", "戦士", "魔法使い"};
+        int enemy_hp = 300;
+        for (String person : team) {
+            // 以下の行を、敵の体力を減少させるコードに書き換える
+            enemy_hp -= attack(person);
+            System.out.println("敵のHPは残り" + enemy_hp + "です");
+        }
+    }
+
+    public static int attack(String player) {
+        System.out.println(player + "はスライムを攻撃した");
+        int hit = (int) (Math.random() * 10 + 1) * 10;
+        System.out.println(hit + "のダメージを与えた");
+        return hit;
+    }
+}
