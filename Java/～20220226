@@ -163,3 +163,157 @@ public class Main {
         return hit;
     }
 }
+
+// クラスにメソッドを定義しよう
+public class Main {
+    public static void main(String[] args) {
+        Hello player = new Hello();
+        player.sayHello();
+    }
+}
+
+class Greeting {
+    public String msg;
+    public String target;
+
+    public Greeting() {
+        msg = "hello";
+        target = "paiza";
+    }
+}
+
+class Hello extends Greeting {
+    // この下に、sayHelloメソッドを記述する
+    public void sayHello(){
+        System.out.println(msg + " " + target);
+    }
+}
+
+// サブクラスにコンストラクタを定義しよう
+public class Main {
+    public static void main(String[] args) {
+        Hello player = new Hello("paiza");
+        player.sayHello();
+    }
+}
+
+class Greeting {
+    public String target;
+
+    public Greeting(String name) {
+        target = name;
+    }
+}
+
+class Hello extends Greeting {
+    // この下にコンストラクタを定義する
+    public Hello(String name){
+        super(name);
+    }
+    public void sayHello(){
+        System.out.println("hello " + target);
+    }
+}
+
+// メソッドをオーバーライドしよう
+public class Main {
+    public static void main(String[] args) {
+        Hello player = new Hello();
+        player.sayHello();
+    }
+}
+
+class Greeting {
+    public void sayHello(){
+        System.out.println("greeting paiza");
+    }
+}
+
+class Hello extends Greeting {
+    // この下で、メソッドをオーバーライドする
+    public void sayHello(){
+        System.out.println("hello paiza");
+    }
+}
+
+// RPGのPlayerクラスを継承で記述　その1
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== パーティでスライムと戦う ===");
+
+        Player hero = new Player("勇者");
+        Player warrior = new Player("戦士");
+        Player[] party = {hero, warrior};
+
+        for (Player member : party) {
+            member.attack("スライム");
+        }
+        // hero.attack("スライム");
+    }
+}
+
+class Player {
+    public String myName;
+
+    public Player(String name) {
+        myName = name;
+    }
+
+    public void attack(String enemy) {
+        System.out.println(myName + "は、" + enemy + "を攻撃した！");
+    }
+}
+
+// RPGの攻撃シーン
+public class Main {
+    public static void main(String[] args) {
+        Player hero = new Player("勇者");
+        Player wizard = new Player("魔法使い");
+        Player warrior = new Warrior("戦士");
+        Player[] party = {hero, wizard, warrior};
+
+        for (Player member : party) {
+            member.attack("スライム");
+        }
+    }
+}
+
+class Player {
+    public String myName;
+
+    public Player(String name) {
+        myName = name;
+    }
+
+    public void attack(String enemy) {
+        System.out.println(myName + "は" + enemy + "を攻撃した");
+    }
+}
+
+class Warrior extends Player {
+    public Warrior(String name) {
+        super(name);
+    }
+
+    public void attack(String enemy) {
+        System.out.println(myName + "は" + enemy + "を猛攻撃した");
+    }
+}
+
+// オーバーロードされたメソッドを呼び出す
+public class Main {
+    public static void main(String[] args) {
+        // この下で、sayHelloメソッドを呼び出す。
+        sayHello();
+        sayHello("java");
+    }
+
+    public static void sayHello(){
+        System.out.println("hello paiza");
+    }
+
+    public static void sayHello(String target){
+        System.out.println("hello " + target);
+    }
+}
