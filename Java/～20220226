@@ -317,3 +317,422 @@ public class Main {
         System.out.println("hello " + target);
     }
 }
+
+// 指定の文字をハッシュにする
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> skills = new HashMap<String, Integer>();
+        skills.put("攻撃力", 150);
+        System.out.println(skills.get("攻撃力"));
+        // この下に、エントリーを追加する
+        skills.put("防御力", 100);
+        skills.put("魔法力", 200);
+        skills.put("移動力", 380);
+        
+        System.out.println(skills.get("防御力"));
+        System.out.println(skills.get("魔法力"));
+        System.out.println(skills.get("移動力"));
+    }
+}
+
+//  マップのサイズを出力してみよう
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> skills = new HashMap<String, Integer>();
+        skills.put("攻撃力", 150);
+        skills.put("防御力", 100);
+        skills.put("魔法力", 200);
+        skills.put("移動力", 380);
+
+        // この下で、HashMapのサイズを出力する
+        System.out.println(skills.size());
+
+    }
+}
+
+// ループでマップのキーと値を出力しよう
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> skills = new HashMap<String, Integer>();
+        skills.put("攻撃力", 150);
+        skills.put("防御力", 100);
+        skills.put("魔法力", 200);
+        skills.put("移動力", 380);
+
+        // この下で、マップの値をループで出力する
+        for(Entry<String, Integer> entry : skills.entrySet()){
+            System.out.println(entry.getKey()+"は"+entry.getValue()+"です");
+        }
+    }
+}
+
+// ループでマップの値を出力しよう
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> points = new HashMap<String, Integer>();
+        points.put("国語", 51);
+        points.put("算数", 35);
+        points.put("英語", 52);
+        points.put("理科", 19);
+        int sum = 0;
+        // この下で、ハッシュの値の合計をループで計算する
+        for(Entry<String, Integer> entry : points.entrySet()){
+            
+            sum += entry.getValue();
+            
+        }
+        System.out.println(sum);
+    }
+}
+
+// 画像を順番に出力する
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // 画像用ハッシュ
+        HashMap<String, String> itemImages  = new HashMap<String, String>();
+        itemImages.put("剣", "http://paiza.jp/learning/images/sword.png");
+        itemImages.put("盾", "http://paiza.jp/learning/images/shield.png");
+        itemImages.put("回復薬", "http://paiza.jp/learning/images/potion.png");
+        itemImages.put("クリスタル", "http://paiza.jp/learning/images/crystal.png");
+
+        // ここから下を書く
+        Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        
+        for(int i = 0; i < count; i++){
+            String itemName = sc.next();
+            System.out.println("<img src=" + itemImages.get(itemName) + "><br>");
+        }
+        
+    }
+}
+
+// 例外処理を定義しよう
+public class Main {
+    public static void main(String[] args) {
+        String[] enemies = {"スライム", "ドラゴン", "魔王" };
+
+        int number = 3;
+        try {
+            System.out.println("勇者は敵に遭遇した");
+            System.out.println("勇者は" + enemies[number] + "と戦った");
+        } catch(Exception e) {
+	    System.err.println("その敵は表示できません");
+            e.printStackTrace();
+        }finally{
+            System.out.println("勇者は勝利した");
+        }
+    }
+}
+
+// 例外の種類を変更しよう
+public class Main {
+    public static void main(String[] args) {
+        String[] enemies = {"スライム", "ドラゴン", "魔王" };
+
+        try {
+            int number = 3;
+            System.out.println("勇者は敵に遭遇した");
+            System.out.println("勇者は" + enemies[number] + "と戦った");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("その敵は表示できません");
+        } finally {
+            System.out.println("勇者は勝利した");
+        }
+    }
+}
+
+// 複数の例外を捕捉しよう
+public class Main {
+    public static void main(String[] args) {
+        String[] enemies = {"スライム", "ドラゴン", "魔王" };
+
+        try {
+            int number = 3;
+            System.out.println("勇者は敵に遭遇した");
+            System.out.println("勇者は" + enemies[number] + "と戦った");
+        } catch (NumberFormatException e) {
+            System.err.println("文字列を数値に変換できません。");
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.err.println("その敵は表示できません");
+        } finally {
+            System.out.println("勇者は勝利した");
+        }
+    }
+}
+
+//標準入力でモンスターを選択する
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // モンスターを配列で記述する
+        String[] enemies = {"スライム", "ドラゴン", "魔王" };
+
+        try {
+            // 標準入力から整数を入力
+            Scanner sc = new Scanner(System.in);
+            int number = Integer.parseInt(sc.next());
+
+            // 入力値に合わせて、プレイヤー名を表示する
+            System.out.println("勇者は敵に遭遇した");
+            System.out.println("勇者は" + enemies[number] + "と戦った");
+            
+        } catch (NumberFormatException e) {
+            System.err.println("数値を入力してください");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("0から" + (enemies.length -1) + "を入力してください");
+        } finally {
+            System.out.println("勇者は勝利した");
+        }
+    }
+}
+
+// 0から99までファイルに書き込む
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        File file = new File("articles.txt");
+
+        // ファイル書き込み
+        FileWriter filewriter = new FileWriter(file);
+        // ここに、0から99まで1行ずつ書き込むコードを記述する
+        for(int i = 0; i < 100; i++){
+            filewriter.write(i + "\n");
+        }
+
+        filewriter.close();
+
+        // ファイル読み込み
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            System.out.println(line);
+        }
+        scan.close();
+    }
+}
+
+// 0から99までファイルに書き込む
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        File file = new File("articles.txt");
+
+        // ファイル書き込み
+        try {
+            FileWriter filewriter = new FileWriter(file);
+            for (int i = 0; i < 100; i++) {
+                filewriter.write(i + "\n");
+            }
+            filewriter.close();
+        } catch (IOException e) {
+            System.err.println("ファイル書き込みに失敗しました");
+            e.printStackTrace();
+        }
+
+        // ファイル読み込み
+        try {
+            Scanner scan = new Scanner(file);
+            while (scan.hasNextLine()){
+                String line = scan.nextLine();
+                System.out.println(line);
+            }
+            scan.close();
+        } catch(IOException e) {
+            System.err.println("ファイル読み込みに失敗しました");
+            e.printStackTrace();
+        }
+    }
+}
+
+// 0から99までファイルに書き込む
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        File file = new File("articles.txt");
+
+        // ファイル書き込み(自動終了したいオブジェクトをtyr()に記述)
+        try (FileWriter filewriter = new FileWriter(file)) {
+            for (int i = 0; i < 100; i++){
+                filewriter.write(i + "\n");
+            }
+        } catch (IOException e) {
+            System.err.println("ファイル書き込みに失敗しました");
+            e.printStackTrace();
+        }
+
+        // ファイル読み込み
+        try (Scanner scan = new Scanner(file)) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("ファイル読み込みに失敗しました");
+            e.printStackTrace();
+        }
+    }
+}
+
+//Exception ← RuntimeException ← IllegalArgumentException ← NumberFormatException
+・Throwable
+エラーと例外のスーパークラス
+
+・Exception
+チェック例外／検査例外（プログラム内で捕捉が必要）
+
+・RuntimeException
+非チェック例外／実行時例外（プログラム中で捕捉は任意）
+
+・Error
+致命的な問題が発生し、実行を継続できない問題を表す。
+
+・IOException
+ファイルやネットワークなど入出力の問題を検出
+
+・FileNotFoundException
+ファイルが開けなかったことを検出。IOExceptionのサブクラス
+
+・SQLException
+データベースアクセスの問題を検出
+
+・ArithmeticException
+ゼロ除算などの算術計算の問題を検出
+
+・NumberFormatException
+数値変換時に文字が与えられたことを検出。IllegalArgumentExceptionのサブクラス
+
+・ArrayIndexOutOfBoundsException
+配列の範囲外アクセスを検出
+
+// 0から99までファイルに書き込む
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        File file = new File("articles.txt");
+
+        // ファイル書き込み
+        FileWriter filewriter = new FileWriter(file);
+        for (int i = 0; i < 100; i++){
+            filewriter.write(i + "\n");
+        }
+        filewriter.close();
+
+        // ファイル読み込み
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            System.out.println(line);
+        }
+        scan.close();
+    }
+}
+
+// 0から99まで表示する
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        File file = new File("articles.txt");
+
+        // ファイル書き込み
+        try {
+            FileWriter filewriter = new FileWriter(file);
+            for (int i = 0; i < 100; i++){
+                filewriter.write(i + "\n");
+            }
+            filewriter.close();
+        } catch (IOException e) {
+            System.err.println("ファイル書き込みに失敗しました");
+            e.printStackTrace();
+        }
+
+        // ファイル読み込み
+        try {
+            Scanner scan = makeScanner(file);
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                System.out.println(line);
+            }
+            scan.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("ファイル読み込みに失敗しました");
+            e.printStackTrace();
+        }
+    }
+
+    public static Scanner makeScanner(File file) throws FileNotFoundException {
+        Scanner scan = new Scanner(file);
+        return scan;
+    }
+}
+
+// 0から99まで表示する
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        File file = new File("articles.txt");
+
+        // ファイル書き込み
+        try (FileWriter filewriter = new FileWriter(file)) {
+            for (int i = 0; i < 100; i++){
+                filewriter.write(i + "\n");
+            }
+        } catch (IOException e) {
+            System.err.println("ファイル書き込みに失敗しました");
+            e.printStackTrace();
+        }
+
+        // ファイル読み込み
+        try (Scanner scan = makeScanner(file)) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("ファイル読み込みに失敗しました");
+            e.printStackTrace();
+        }
+    }
+
+    public static Scanner makeScanner(File file) throws FileNotFoundException {
+        try {
+            Scanner scan = new Scanner(file);
+            return scan;
+        } catch (FileNotFoundException e) {
+            System.err.println("makeScannerで例外を検出しました");
+            throw e;
+        }
+    }
+}
